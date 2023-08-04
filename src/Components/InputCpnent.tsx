@@ -1,5 +1,17 @@
-const InputCpnent = ({data, label} : {data : string | string[], label : string}) => {
+import { UseFormRegister } from "react-hook-form";
+import { FormI } from "./Form";
+import { error } from "console";
 
-    return(<input type="text" placeholder={data as string}></input>);
+interface InputCpnentProps {
+    data: string | string[];
+    label: string;
+    register: UseFormRegister<FormI>;
+}
+
+
+const InputCpnent = ({ data, label, register }: InputCpnentProps) => {
+
+    return (
+        <input type="text" placeholder={data as string} {...register(label)}></input>);
 }
 export default InputCpnent;
