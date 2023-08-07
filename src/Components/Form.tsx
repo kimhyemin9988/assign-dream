@@ -4,6 +4,8 @@ import InputSwitch from "../InputSwitch";
 import { FormList } from "./LiteralData";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
+import { apiJobtest } from "../api";
+import { useState } from "react";
 
 export const MainForm = styled.form`
   display: flex;
@@ -22,14 +24,15 @@ const Form = () => {
   } = useForm<FormI>();
 
 
-  const onSubmit = async (data: any) => {
-    const inform1And3 = FormList.filter((e) => e.label === "정보1" || e.label === "정보3").map((e) => Object.values(e)); // 정적data 객체형태로 바꾸기
-    //console.log(data);{정보2: '', 정보4: '', date: '', 정보5: null, 정보6: false}
-    const output = { //api로 보낼 데이터
-      ...data,
-      ...Object.fromEntries(inform1And3)
+  const onSubmit = async (data: FormI) => {
+    let changeKeyObj: FormI = {};
+    for (var key in data) {
+      let newKey = key.replace('정보', 'info');
+      changeKeyObj[newKey] = data[key];
     }
-  }
+    apiJobtest(changeKeyObj).then((value)=> alert(value["message"]));
+  };
+
   return (
     <MainForm onSubmit={handleSubmit(onSubmit)}>
       {FormList.map((element) => {
