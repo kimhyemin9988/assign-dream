@@ -5,7 +5,6 @@ import { FormList } from "./LiteralData";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { apiJobtest } from "../api";
-import { useState } from "react";
 
 export const MainForm = styled.form`
   display: flex;
@@ -21,8 +20,9 @@ const Form = () => {
   const {
     handleSubmit,
     register,
+    reset,
   } = useForm<FormI>();
-
+  
 
   const onSubmit = async (data: FormI) => {
     let changeKeyObj: FormI = {};
@@ -30,7 +30,12 @@ const Form = () => {
       let newKey = key.replace('정보', 'info');
       changeKeyObj[newKey] = data[key];
     }
-    apiJobtest(changeKeyObj).then((value)=> alert(value["message"]));
+    apiJobtest(changeKeyObj).then((value)=> {
+      alert(value["message"]);
+      if(value["message"]==="저장되었습니다."){
+        reset();
+      }
+    });
   };
 
   return (
