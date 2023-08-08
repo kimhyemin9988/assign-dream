@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import { MenuUl } from "../Menu";
+import { Link } from "react-router-dom";
 
 const MenuBig = styled.button`
   height: 36px;
@@ -18,11 +19,17 @@ const Triangle = styled.svg<OpenProps>`
   height: 15px;
   transform: ${(props) => props.$openProps ? "rotate(180deg)" : "rotate(0)"};
 `
+const MenuLink = styled(Link)`
+    display: block;
+`
 
 interface menuData {
     element: {
         topMenu: string;
-        subMenu: string[];
+        subMenu: {
+            title: string;
+            url: string;
+        }[];
     }
 }
 
@@ -43,7 +50,9 @@ const MenuCpnent = ({ element }: menuData) => {
                 <MenuUl>
                     {element["subMenu"].map((sub) => {
                         return (
-                            <MenuSmall key={Math.random()*1000}>{sub}</MenuSmall>
+                            <MenuSmall key={Math.random() * 1000}>
+                                <MenuLink to={`${sub["url"]}`}>{sub["title"]}</MenuLink>
+                            </MenuSmall>
                         )
                     })}
                 </MenuUl>

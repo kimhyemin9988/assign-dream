@@ -49,10 +49,26 @@ export const FormList = [
 
 export const menuData = [{
     topMenu: "대메뉴",
-    subMenu: ["소메뉴","소메뉴"],
+    subMenu: [{
+        title: "소메뉴",
+        url: "title"
+    },
+    {
+        title: "소메뉴",
+        url: "empty1"
+    }
+    ],
 },
 {
     topMenu: "대메뉴",
-    subMenu: ["소메뉴","소메뉴"],
+    subMenu: [{
+        title: "소메뉴",
+        url: "empty2"
+    },
+    {
+        title: "소메뉴",
+        url: "empty3"
+    }
+    ],
 }
 ]

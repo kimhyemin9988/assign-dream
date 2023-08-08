@@ -1,20 +1,7 @@
-import { styled } from "styled-components";
-import BigTitle from "./Components/BigTitle";
-import Form from "./Components/Form";
-import { PageTitle } from "./Components/LiteralData";
-
-const MainPage =styled.main`
-  height: 100vh;
-  margin-left: 256px;
-  min-width: 330px;
-`
-
+/* 홈 페이지 */
 const Home = () => {
   return (
-    <MainPage>
-      <BigTitle PageTitle={PageTitle}></BigTitle>
-      <Form></Form>
-    </MainPage>
+    <span>메뉴를 눌러 이동해 주십시오.</span>
   )
 }
 export default Home;
