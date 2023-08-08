@@ -1,6 +1,7 @@
 import { UseFormRegister } from "react-hook-form";
 import { FormI } from "./Form";
 
+/* 날짜 */
 const DateInput = ({ data, register }: { data: string | string[], register: UseFormRegister<FormI> }) => {
 
     return (

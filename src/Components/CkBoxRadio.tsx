@@ -32,6 +32,12 @@ const CkBoxRadioStyle = styled.input<CkBoxRadioProps>`
         border: 4px solid #024EEE;
     }
 `
+
+const SubText5 = styled.span`
+    color: #F03738;
+`
+
+/* 정보 5와 정보6 컴포넌트 */
 const CkBoxRadio = ({ label, data, type, register }: CkBoxRadioI) => {
     const id = data as string[];
     const [subText, setSubText] = useState(false);
@@ -47,7 +53,7 @@ const CkBoxRadio = ({ label, data, type, register }: CkBoxRadioI) => {
                 </div>
             )
         })}
-        {subText && type === "radio" && <h1>*선택시 텍스트가 표시됩니다.</h1>}
+        {subText && type === "radio" && <SubText5>*선택시 텍스트가 표시됩니다.</SubText5>}
     </>)
 }
 export default CkBoxRadio;

@@ -7,6 +7,11 @@ interface enumI {
     [parameter: string]: JSX.Element;
 }
 
+
+    /* enum사용하여 
+    객체의 value로 컴포넌트를 넣고 부모로 부터 받은
+    문자열이 저장된 props로 인덱싱하여 각 행을 랜더링 */
+
 const InputSwitch = ({ label, data, type, register }: CkBoxRadioI) => {
     const status = label; //정보
 

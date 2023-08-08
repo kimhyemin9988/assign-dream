@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 
-
 const Row = styled.div`
     display: flex;
     flex-direction: row;
@@ -21,6 +20,7 @@ type ChildProps = {
     children: JSX.Element;
     label: string;
 }
+/* input과 label를 포함한 각 form의 행*/
 const FrameRow = ({ children, label }: ChildProps) => {
     return (
         <Row>

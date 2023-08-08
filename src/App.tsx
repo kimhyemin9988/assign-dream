@@ -8,6 +8,7 @@ const MainPage = styled.main`
   margin-left: 256px;
   min-width: 330px;
 `
+/* Outlet을 사용, 라우팅  */
 const App = () => {
   return (
     <>

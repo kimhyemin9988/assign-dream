@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import { MenuUl } from "../Menu";
-import { Link, useMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface OpenProps {
     readonly $openProps: boolean;
@@ -40,11 +40,13 @@ const MenuSmall = styled.li`
   }
 `
 
+/* 대메뉴 삼각형 openMenu에 띠라 rotate */
 const Triangle = styled.svg<OpenProps>`
   width: 18px;
   height: 10px;
   transform: ${(props) => props.$openProps ? "rotate(180deg)" : "rotate(0)"};
 `
+
 const MenuLink = styled(Link)`
     display: block;
     font-size: 14px;
@@ -52,6 +54,7 @@ const MenuLink = styled(Link)`
     font-style: normal;
     font-weight: 500;
 `
+
 
 interface menuData {
     element: {
@@ -64,11 +67,14 @@ interface menuData {
 }
 
 const MenuCpnent = ({ element }: menuData) => {
+    
     const [openMenu, setopenMenu] = useState<boolean>(false);
+    //openMenu의 상태에 따라 하위 메뉴를 랜더링 함
     const menuControl = () => {
         setopenMenu((prev) => !prev)
     };
 
+    //openMenu를 각 styled 컴포넌트의 props로 넘겨 그에 따라 css를 변경함
     return (
         <div>
             <MenuBig $openProps={openMenu} onClick={menuControl}>
@@ -78,6 +84,7 @@ const MenuCpnent = ({ element }: menuData) => {
                 </Triangle>
             </MenuBig>
             {openMenu &&
+            /* 하위 메뉴 */
                 <MenuUl>
                     {element["subMenu"].map((sub) => {
                         return (

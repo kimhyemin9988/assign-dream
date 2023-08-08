@@ -23,7 +23,7 @@ const InputField = styled.input`
         border: 1px solid #024EEE;
     }
 `
-
+/* 정보2, 정보4 input */
 const InputCpnent = ({ label, register }: InputCpnentProps) => {
 
     return (
