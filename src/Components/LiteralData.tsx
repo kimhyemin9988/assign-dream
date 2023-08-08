@@ -38,12 +38,21 @@ export const FormList = [
     {
         label: "정보5",
         data: ["선택1", "선택2", "선택3"],
-        type:"radio"
+        type: "radio"
     },
     {
         label: "정보6",
         data: ["선택1", "선택2", "선택3"],
-        type:"checkbox"
+        type: "checkbox"
     },
 ]
 
+export const menuData = [{
+    topMenu: "대메뉴",
+    subMenu: ["소메뉴","소메뉴"],
+},
+{
+    topMenu: "대메뉴",
+    subMenu: ["소메뉴","소메뉴"],
+}
+]
