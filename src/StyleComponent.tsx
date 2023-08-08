@@ -13,13 +13,18 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video , button{
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-weight: normal;
+  font-family: 'noto sans kr';
+  color:black;
+  line-height: 24px;
+  letter-spacing: -0.25px;
 }
 
 article, aside, details, figcaption, figure,
@@ -55,7 +60,7 @@ body { //figma text
   font-weight: normal;
   font-family: 'noto sans kr';
   color:black;
-  line-height: 22px;
+  line-height: 24px;
   letter-spacing: -0.25px;
 }
 a {

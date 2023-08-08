@@ -1,6 +1,6 @@
 import { UseFormRegister } from "react-hook-form";
 import { FormI } from "./Form";
-import { error } from "console";
+import { styled } from "styled-components";
 
 interface InputCpnentProps {
     data: string | string[];
@@ -8,10 +8,25 @@ interface InputCpnentProps {
     register: UseFormRegister<FormI>;
 }
 
+const InputField = styled.input`
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    width: 136px;
+    height: 24px;
+    outline: none;
+    &:focus{
+        border: 1px solid #024EEE;
+    }
+`
 
-const InputCpnent = ({ data, label, register }: InputCpnentProps) => {
+const InputCpnent = ({ label, register }: InputCpnentProps) => {
 
     return (
-        <input type="text" placeholder={data as string} {...register(label)}></input>);
+        <InputField type="text" {...register(label)} required></InputField>);
 }
 export default InputCpnent;

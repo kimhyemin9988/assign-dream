@@ -1,6 +1,7 @@
 import { UseFormRegister } from "react-hook-form";
 import { FormI } from "./Form";
 import { useState } from "react";
+import { styled } from "styled-components";
 
 export interface CkBoxRadioI {
     label: string;
@@ -9,6 +10,28 @@ export interface CkBoxRadioI {
     register: UseFormRegister<FormI>;
 }
 
+
+interface CkBoxRadioProps {
+    readonly $type: string | undefined;
+}
+
+
+const CkBoxRadioStyle = styled.input<CkBoxRadioProps>`
+    width: 16px;
+    height: 16px;
+    border-radius: ${(props) => props.$type === "radio" ? "8px" : "4px"};
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    appearance: none;
+    &:hover{
+        border: 1px solid #BEBEBE;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #F6F7F8;
+    }
+    &:checked{
+        background: #FFFFFF;
+        border: 4px solid #024EEE;
+    }
+`
 const CkBoxRadio = ({ label, data, type, register }: CkBoxRadioI) => {
     const id = data as string[];
     const [subText, setSubText] = useState(false);
@@ -17,14 +40,14 @@ const CkBoxRadio = ({ label, data, type, register }: CkBoxRadioI) => {
         {id.map((ele) => {
             return (
                 <div key={ele + "a"}>
-                    <input type={type} id={ele + type} value={ele} {...register(label)} onClick={() => {
+                    <CkBoxRadioStyle $type={type} type={type} id={ele + type} value={ele} {...register(label)} onClick={() => {
                         setSubText((prev) => ele === "선택3" ? prev = true : prev = false)
-                    }}></input>
+                    }} required={type === "radio" && true}></CkBoxRadioStyle>
                     <label htmlFor={ele + type}>{ele}</label>
                 </div>
             )
         })}
-        {subText && <h1>*선택시 텍스트가 표시됩니다.</h1>}
+        {subText && type === "radio" && <h1>*선택시 텍스트가 표시됩니다.</h1>}
     </>)
 }
 export default CkBoxRadio;

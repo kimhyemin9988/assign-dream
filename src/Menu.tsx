@@ -4,10 +4,10 @@ import MenuCpnent from "./Components/MenuCpnent";
 
 const MenuBackground = styled.nav`
   width: 256px;
-  border-right: 1px solid #E0E4E8;
   padding-top: 20px;
   height: 100%;
   position: fixed;
+  border-right: 1px solid #E0E4E8;
 `
 export const MenuUl = styled.ul`
 `
